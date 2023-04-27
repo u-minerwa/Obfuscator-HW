@@ -1,0 +1,113 @@
+-------------------------------------------- КОМАНДЫ GIT ---------------------------------------------------------------------
+
+git config --global user.email my@mail.ru 
+git config --global user.name yourName 
+
+git clone 'https' - Клонирование проекта 
+git init - Инициализация 
+
+git status - Статус
+git add . - Добавить файлы (. - все файлы)
+git commit -m "Name of commit" - создать коммит с именем 
+git restore . - откат изменений у Modified files 
+
+git clean -f - Удалить все Untracked files. 
+git restore --staged . - откат для Staged files 
+git reset 'file' - также откат 
+
+git reset HEAD~1 - Откат последнего коммита (вместо 1 можноставить другое число, показывающее, сколько коммитов откатить) 
+
+--------------------------------- КАСАЕМО МОЕГО ПРОЕКТА НА ГИТЛАБЕ -------------------------------------------------------------
+
+git remote add origin https://gitlab.com/cuvitidala/myfirstproj.git 
+cd existing_repo
+git remote add origin https://gitlab.com/cuvitidala/myfirstproj.git
+git branch -M main
+git push -uf origin main
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+git push origin HEAD - запушить изменения в удалённый репозиторий 
+git remote
+git remote -v - Посмотреть инфу об удалённых репозиториях 
+git fetch - Получить актуальную инфу про удалённый репозиторий
+git fetch origin 
+git pull - Получить себе информацию с удалённого репозитория 
+git pull - Обновить локальную копию удалённого репозитория 
+git diff <имя_ветки> <имя_другой_ветки> - Предварительно посмотреть на изменения 
+
+git branch - Вывести список веток с указанием текущей ветки 
+git checkout -b 'Name of new branch' - Создать ветку 
+git checkout 'branch' - Переход на ветку 
+git checkout HEAD~ <file.txt> - Восстанавливать изменения файла на момент указанного коммита
+git branch 'new branch' - Создать ветку без перехода на неё 
+git branch -m 'new name of branch' - Переименовать ветку 
+git branch -m 'старое имя' 'новое имя' - Переименовать ветку 
+
+git merge 'name of branch' - Слияние текущей ветки с другой 
+git merge --continue - При конфликте
+
+git branch -d 'name of branch' - Удаление ветки 
+git branch -D 'name of branch' - Удаление тупиковой ветки 
+
+git push origin -d 'name of branch' - Удаление ветки из удалённого репозитория 
+git push origin :'name of branch' - Удаление ветки из удалённого репозитория 
+git log - Список коммитов с инфой 
+git cherry-pick "hash commit" - Копировать коммит из одной ветки в другую 
+
+git stash - Запомнить только файлы в индексе 
+git stash -u - Запомнить все файлы (в индексе и нет), не прибегая к add и commit. Можно перемещаться к другим веткам 
+git stash --include-untracked 
+git stash pop - Вытащить значения из стеша 
+git stash apply - Вытащить значения, не удаляя их из стеша
+git stash clear - Очистить стеш 
+
+git remote rename 'старое имя' 'новое имя' - Переименовать удалённый репозиторий 
+git remote rm 'name' - Удалить удалённый репозиторий 
+git remote remove 'name' - Удалить удалённый репозиторий 
+
+---------------------------- ОТЛАДКА ------------------------------------------------------------------------------------------
+
+git blame <file_path/file_name> - Найти коммит, создавший ошибку 
+git blame -L 11,21 'file_name' - Ограничение диапазона строк
+git blame -L -C 11,21 <file_path/file_name> - Выяснить оригинального автора 
+
+git bisect start - Запуск отладчика 
+git log --oneline - Найти хороший коммит
+git bisect good 95d691 - Последний хороший коммит
+git bisect bad f11c599 - Плохой коммит 
+git bisect reset - Выйти из режима бинарного поиска 
+
+git grep - Поиск по шаблону, заданному регулярным выражением. Поиск во всех файлах, кроме тех, которые в .gitignore 
+Флаги -n и --line-number выводят номера строк, в которых Git нашел совпадения.
+Настройка -i, или --ignore-case игнорирует разницу в регистре символов между шаблоном и найденным фрагментом. 
+Опции -c и--count подсчитывают количество совпадений в файле. 
+Чтобы отобразить найденный ключ в контексте метода или функции, следует указать -p или --show-function.
+Для множественных совпадений используется флаг --and. 
+
+------------------------------------------------------------------------------------------------------------------------------
+
+git log --graph --oneline --all
+git config --global alias.'newnazvanie' 'Что хочу переименовать'
+git commit --amend -m 'new name'
+git commit --amend -m "Новое название коммита" - Переименовать коммит
+
+git rebase -i HEAD~2 - Переименование коммитов
+
+git checkout commit - Переключиться на другой коммит 
+git branch -v - Посмотреть на каком коммите сидим 
+git checkout - - Вернуться обратно
+
+git rebase -i HEAD~3 - Как сжать последние три коммита в один 
+Одному в редакторе оставим pick, другим s (squash)
+
+git ls-files - Файлы в индексе 
+git rm "filename" -f - Удалить файл из индекса принудительно
+git rm "filename" - Удалить файл из индекса
+
+git merge -X theirs/ours branchB - Выполнить слияние в сторону определённой ветки 
+
+
+
+
+
